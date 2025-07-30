@@ -1,0 +1,33 @@
+.header {
+  background-color: #FFFFFFCC;
+  width: 100vw;
+  height: 46px;
+  display: flex;
+}
+
+.header__logo {
+  width: 94px;
+  height: 26px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: auto;
+}
+
+.header__icon {
+  width: 10px;
+  height: 16px;
+}
+
+.header__title {
+  width: 76px;
+  height: 26px;
+  font-family: DM Mono;
+  font-weight: 500;
+  font-size: 1.25rem;
+  padding: 0;
+  margin: 0;
+  line-height: 1;
+  letter-spacing: 3.3px;
+  text-transform: uppercase;
+}

@@ -6,18 +6,116 @@
   <meta name="description" content="Spits, a dynamic social media web app where users can upload, delete, and like photos, explore content from others, and personalize their profiles with simple edits.">
   <meta name="author" content="Sara Ismial">
   <link rel="stylesheet" href="pages/index.css">
-  <<link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
   <title>Spots</title>
 </head>
 <body>
   <div class="page">
-    <header class="header"></header>
+    <header class="header">
+      <div class="header__logo">
+        <img class="header__icon" src="images/logo-icon.svg" alt="Spots Logo">
+        <h1 class="header__title">Spots</h1>
+      </div>
+    </header>
     <main class="content">
       <section class="profile">
+        <div class="profile__info">
+          <img class="profile__image" src="images/avatar.jpg" alt="Profile Photo">
+          <div class="profile__name-description">
+            <h2 class="profile__name">Bessie Coleman</h2>
+            <p class="profile__description">Civil Aviator</p>
+          </div>
+          <button class="profile__edit-btn">
+            <img class="profile__btn-pencil-icon" src="images/pencil-icon-default.svg" alt="Pencil icon">
+            <span class="profile__button-text">Edit Profile</span>
+          </button>
+        </div>
+        <button class="profile__post-btn">
+          <img class="profile__btn-plus-icon" src="images/plus-icon.svg" alt="Plus icon">
+            <span class="profile__button-text">New Post</span>
+        </button>
       </section>
-      <section class="cards"></section>
+      <section class="profile__mobile">
+        <div class="profile__info">
+          <img class="profile__image" src="images/avatar.jpg" alt="Profile Photo">
+          <div class="profile__name-description">
+            <h2 class="profile__name">Bessie Coleman</h2>
+            <p class="profile__description">Civil Aviator</p>
+          </div>
+        </div>
+        <div class="profile__buttons">
+          <button class="profile__edit-btn">
+            <img class="profile__btn-pencil-icon" src="images/pencil-icon-default.svg" alt="Pencil icon">
+            <span class="profile__button-text">Edit Profile</span>
+          </button>
+          <button class="profile__post-btn">
+          <img class="profile__btn-plus-icon" src="images/plus-icon.svg" alt="Plus icon">
+            <span class="profile__button-text">New Post</span>
+        </button>
+        </div>
+      </section>
+      <section class="cards">
+        <div class="card">
+          <img class="card__image" src="images/1-photo-by-moritz-feldmann-from-pexels.jpg" alt="Val Thorens">
+          <div class="card__content">
+            <p class="card__description">
+              Val Thorens
+            </p>
+            <img class="card__like-icon" src="images/like-icon.svg" alt="Like Icon">
+          </div>
+        </div>
+        <div class="card">
+          <img class="card__image" src="images/2-photo-by-ceiline-from-pexels.jpg" alt="Restaurant Terrace">
+          <div class="card__content">
+            <p class="card__description">
+              Restaurant Terrace
+            </p>
+            <img class="card__like-icon" src="images/like-icon.svg" alt="Like Icon">
+          </div>
+        </div>
+        <div class="card">
+          <img class="card__image" src="images/3-photo-by-tubanur-dogan-from-pexels.jpg" alt="An outdoor cafe">
+          <div class="card__content">
+            <p class="card__description">
+              An outdoor cafe
+            </p>
+            <img class="card__like-icon" src="images/like-icon.svg" alt="Like Icon">
+          </div>
+        </div>
+        <div class="card">
+          <img class="card__image" src="images/4-photo-by-maurice-laschet-from-pexels.jpg" alt="A very long bridge, over the forest...">
+          <div class="card__content">
+            <p class="card__description">
+              A very long bridge, over the forest...
+            </p>
+            <img class="card__like-icon" src="images/like-icon.svg" alt="Like Icon">
+          </div>
+        </div>
+        <div class="card">
+          <img class="card__image" src="images/5-photo-by-van-anh-nguyen-from-pexels.jpg" alt="Tunnel with morning light">
+          <div class="card__content">
+            <p class="card__description">
+              Tunnel with morning light
+            </p>
+            <img class="card__like-icon" src="images/like-icon.svg" alt="Like Icon">
+          </div>
+        </div>
+        <div class="card">
+          <img class="card__image" src="images/6-photo-by-moritz-feldmann-from-pexels.jpg" alt="Mountain house">
+          <div class="card__content">
+            <p class="card__description">
+              Mountain house
+            </p>
+            <img class="card__like-icon" src="images/like-icon.svg" alt="Like Icon">
+          </div>
+        </div>
+      </section>
     </main>
-    <footer class="footer"></footer>
+    <footer class="footer">
+      <p class="footer__text">
+        2025 &copy; Spots
+      </p>
+    </footer>
   </div>
 </body>
 </html>
