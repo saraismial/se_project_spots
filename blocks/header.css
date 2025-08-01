@@ -1,6 +1,5 @@
 .header {
   background-color: #FFFFFFCC;
-  width: 100vw;
   height: 46px;
   display: flex;
 }
@@ -9,20 +8,22 @@
   width: 94px;
   height: 26px;
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
+  gap: 8px;
   margin: auto;
 }
 
 .header__icon {
   width: 10px;
   height: 16px;
+  position: relative;
+  top: 2px;
 }
 
 .header__title {
   width: 76px;
   height: 26px;
-  font-family: DM Mono;
+  font-family: "DM Mono", monospace, sans-serif;
   font-weight: 500;
   font-size: 1.25rem;
   padding: 0;
