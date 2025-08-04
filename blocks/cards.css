@@ -76,6 +76,11 @@
     max-width: 90vw;
   }
 
+  .card__image {
+    width: 288px;
+    height: 318px;
+  }
+
   .card__description {
     font-size: 1rem;
   }
