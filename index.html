@@ -116,6 +116,48 @@
         2025 &copy; Sara Ismial
       </p>
     </footer>
+    <div class="modal modal_is-opened">
+      <div class="modal__container">
+        <div class="modal__header">
+          <h2 class="modal__title">
+          Edit Profile
+        </h2>
+        <button type="button" class="modal__close-btn">
+          <img src="images/close-icon.svg" alt="Close icon" class="modal__close-btn-icon">
+        </button>
+        </div>
+        <form class="modal__form">
+          <label for="name" class="modal__label">Name
+            <input type="text" id="name" class="modal__input" placeholder="Type your name" required>
+          </label>
+          <label for="description" class="modal__label"> Description
+            <input type="text" id="description" class="modal__input" placeholder="Describe yourself" required>
+          </label>
+          <button type="submit" class="modal__submit-btn">Save</button>
+        </form>
+      </div>
+    </div>
+    <div class="modal modal_is-opened">
+      <div class="modal__container">
+        <div class="modal__header">
+          <h2 class="modal__title">
+          New Post
+        </h2>
+        <button type="button" class="modal__close-btn">
+          <img src="images/close-icon.svg" alt="Close icon" class="modal__close-btn-icon">
+        </button>
+        </div>
+        <form class="modal__form">
+          <label for="image-link" class="modal__label">Image Link
+            <input type="url" id="image-link" class="modal__input" placeholder="Paste a link to the picture" required>
+          </label>
+          <label for="image-caption" class="modal__label"> Caption
+            <input type="text" id="image-caption" class="modal__input" placeholder="Type your caption" required>
+          </label>
+          <button type="submit" class="modal__submit-btn">Save</button>
+        </form>
+      </div>
+    </div>
   </div>
 </body>
 </html>
