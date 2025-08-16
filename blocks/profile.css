@@ -2,14 +2,10 @@
   width: 87vw;
   height: 210px;
   display: flex;
-  justify-content: space-between;
+  gap: 20px;
   border-bottom: 1px solid #212121B2;
   padding: 20px 0;
   margin: auto;
-}
-
-.profile__mobile {
-  display: none;
 }
 
 .profile__info {
@@ -27,9 +23,9 @@
   border-radius: 8px;
 }
 
-.profile__name-description {
+.profile__column {
   width: 420px;
-  height: 60px;
+  height: 190px;
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -59,6 +55,8 @@
   justify-content: space-between;
   color: #212121B2;
   font-weight: 500;
+  font-size: 0.9rem;
+
 }
 
 .profile__edit-btn:hover {
@@ -74,15 +72,9 @@
   opacity: 1;
 }
 
-.profile__button-text {
-  display: block;
-  font-size: 0.9rem;
-}
-
 .profile__post-btn {
   width: 149px;
   height: 52px;
-  align-self: flex-end;
   background-color: #212121;
   color: #FCF5E5;
   border-radius: 8px;
@@ -90,7 +82,11 @@
   gap: 8px;
   justify-content: center;
   align-items: center;
+  align-self: flex-end;
+  margin-left: auto;
+  margin-bottom: 20px;
   border: none;
+  font-size: 0.9rem;
 }
 
 .profile__post-btn:hover {
@@ -98,7 +94,7 @@
   cursor: pointer;
 }
 
-.plus__icon {
+.profile__btn-plus-icon {
   width: 12px;
   height: 12px;
   margin-right: 8px;
@@ -115,18 +111,13 @@
 
 @media (min-width: 320px) and (max-width: 630px) {
   .profile {
-    display: none;
-  }
-
-  .profile__mobile {
-    display: flex;
-    width: 87vw;
+    max-width: 288px;
+    width: 100%;
+    height: auto;
     flex-direction: column;
     justify-content: space-between;
-    margin: auto;
     align-items: center;
     padding: 20px 0;
-    border-bottom: 1px solid #212121B2;
   }
 
   .profile__info {
@@ -146,24 +137,24 @@
     font-size: 1.25rem;
   }
 
-  .profile__name-description {
+  .profile__column {
     text-align: center;
     display: flex;
     flex-direction: column;
     gap: 6px;
     width: 90vw;
+    height: auto;
   }
 
-  .profile__buttons {
-    width: 90vw;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    align-items: center;
+  .profile__edit-btn {
+    margin-top: 32px;
+    align-self: center;
   }
 
   .profile__post-btn {
-    width: 90vw;
+    max-width: 288px;
+    width: 100%;
+    margin-bottom: 0;
   }
 
 }

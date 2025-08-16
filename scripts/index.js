@@ -7,19 +7,17 @@ const modalPostCloseButton = modalPostProfile.querySelector(".modal__close-btn")
 
 
 editProfileButton.addEventListener("click", function() {
-  console.log("Edit Profile button clicked");
   modalEditProfile.classList.add("modal_is-opened");
-})
+});
 
 modalEditCloseButton.addEventListener("click", function() {
   modalEditProfile.classList.remove("modal_is-opened");
-})
+});
 
 newPostButton.addEventListener("click", function() {
-  console.log("Edit Profile button clicked");
   modalPostProfile.classList.add("modal_is-opened");
-})
+});
 
 modalPostCloseButton.addEventListener("click", function() {
   modalPostProfile.classList.remove("modal_is-opened");
-})
+});
