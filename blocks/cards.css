@@ -5,7 +5,7 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
   margin: 0 auto;
-  padding: 25px 0 40px 0;
+  padding: 10px 0 75px 0;
   border-bottom: 1px solid #212121B2;
 }
 
@@ -13,6 +13,7 @@
   display: flex;
   flex-direction: column;
   margin: auto;
+  max-height: 460px;
 }
 
 .card__image {
@@ -22,6 +23,8 @@
   height: 413px;
   border-radius: 8px;
   object-fit: cover;
+  position: relative;
+  margin: 0;
 }
 
 .card__content {
@@ -31,7 +34,25 @@
 }
 
 .card__description {
-  font-size: 1.25rem;
+  font-size: 1.2rem;
+  line-height: 1.2;
+  margin: 15px 0 0 0;
+}
+
+.card__like-btn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  margin-top: auto;
+  visibility: visible;
+}
+
+.card__like-btn_visible {
+  visibility: hidden;
 }
 
 .card__like-icon {
@@ -46,6 +67,61 @@
   opacity: 1;
   cursor: pointer;
 }
+
+.card__liked-btn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  display: none;
+  margin-top: auto;
+  margin-left: auto;
+}
+
+.card__liked-btn_visible {
+  display: block;
+}
+
+.card__liked-icon {
+  width: 23px;
+  height: 20px;
+  padding: 0;
+  align-self: center;
+}
+
+.card__liked-icon:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+.card__delete-btn {
+  background-color: #0000004D;
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  padding: 8px;
+  cursor: pointer;
+  position: relative;
+  top: 40px;
+  left: 375px;
+  z-index: 2;
+}
+
+.card__delete-btn:hover {
+  background-color: #FF6565;
+}
+
+.card__delete-icon {
+  width: 12px;
+  height: 15px
+}
+
+
 
 
 @media (min-width: 630px) and (max-width: 1320px) {
@@ -74,6 +150,12 @@
   .card__image {
     margin: auto;
     max-width: 90vw;
+  }
+
+  .card__delete-btn {
+    position: relative;
+    top: 40px;
+    left: 250px;
   }
 
   .card__image {

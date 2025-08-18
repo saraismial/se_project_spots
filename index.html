@@ -35,57 +35,105 @@
       </section>
       <section class="cards">
         <div class="card">
+          <button class="card__delete-btn">
+            <img class="card__delete-icon" src="images/delete-icon.svg" alt="Delete Icon">
+          </button>
           <img class="card__image" src="images/1-photo-by-moritz-feldmann-from-pexels.jpg" alt="Val Thorens">
           <div class="card__content">
             <p class="card__description">
               Val Thorens
             </p>
-            <img class="card__like-icon" src="images/like-icon.svg" alt="Like Icon">
+            <button class="card__like-btn">
+              <img class="card__like-icon" src="images/like-icon.svg" alt="Like Icon">
+            </button>
+            <button class="card__liked-btn">
+              <img class="card__liked-icon" src="images/liked-icon.svg" alt="Like Icon">
+            </button>
           </div>
         </div>
         <div class="card">
+          <button class="card__delete-btn">
+            <img class="card__delete-icon" src="images/delete-icon.svg" alt="Delete Icon">
+          </button>
           <img class="card__image" src="images/2-photo-by-ceiline-from-pexels.jpg" alt="Restaurant Terrace">
           <div class="card__content">
             <p class="card__description">
               Restaurant Terrace
             </p>
-            <img class="card__like-icon" src="images/like-icon.svg" alt="Like Icon">
+            <button class="card__like-btn">
+              <img class="card__like-icon" src="images/like-icon.svg" alt="Like Icon">
+            </button>
+            <button class="card__liked-btn">
+              <img class="card__liked-icon" src="images/liked-icon.svg" alt="Like Icon">
+            </button>
           </div>
         </div>
         <div class="card">
+          <button class="card__delete-btn">
+            <img class="card__delete-icon" src="images/delete-icon.svg" alt="Delete Icon">
+          </button>
           <img class="card__image" src="images/3-photo-by-tubanur-dogan-from-pexels.jpg" alt="An outdoor cafe">
           <div class="card__content">
             <p class="card__description">
               An outdoor cafe
             </p>
-            <img class="card__like-icon" src="images/like-icon.svg" alt="Like Icon">
+            <button class="card__like-btn">
+              <img class="card__like-icon" src="images/like-icon.svg" alt="Like Icon">
+            </button>
+            <button class="card__liked-btn">
+              <img class="card__liked-icon" src="images/liked-icon.svg" alt="Like Icon">
+            </button>
           </div>
         </div>
         <div class="card">
+          <button class="card__delete-btn">
+            <img class="card__delete-icon" src="images/delete-icon.svg" alt="Delete Icon">
+          </button>
           <img class="card__image" src="images/4-photo-by-maurice-laschet-from-pexels.jpg" alt="A very long bridge, over the forest...">
           <div class="card__content">
             <p class="card__description">
               A very long bridge, over the forest...
             </p>
-            <img class="card__like-icon" src="images/like-icon.svg" alt="Like Icon">
+            <button class="card__like-btn">
+              <img class="card__like-icon" src="images/like-icon.svg" alt="Like Icon">
+            </button>
+            <button class="card__liked-btn">
+              <img class="card__liked-icon" src="images/liked-icon.svg" alt="Like Icon">
+            </button>
           </div>
         </div>
         <div class="card">
+          <button class="card__delete-btn">
+            <img class="card__delete-icon" src="images/delete-icon.svg" alt="Delete Icon">
+          </button>
           <img class="card__image" src="images/5-photo-by-van-anh-nguyen-from-pexels.jpg" alt="Tunnel with morning light">
           <div class="card__content">
             <p class="card__description">
               Tunnel with morning light
             </p>
-            <img class="card__like-icon" src="images/like-icon.svg" alt="Like Icon">
+            <button class="card__like-btn">
+              <img class="card__like-icon" src="images/like-icon.svg" alt="Like Icon">
+            </button>
+            <button class="card__liked-btn">
+              <img class="card__liked-icon" src="images/liked-icon.svg" alt="Like Icon">
+            </button>
           </div>
         </div>
         <div class="card">
+          <button class="card__delete-btn">
+            <img class="card__delete-icon" src="images/delete-icon.svg" alt="Delete Icon">
+          </button>
           <img class="card__image" src="images/6-photo-by-moritz-feldmann-from-pexels.jpg" alt="Mountain house">
           <div class="card__content">
             <p class="card__description">
               Mountain house
             </p>
-            <img class="card__like-icon" src="images/like-icon.svg" alt="Like Icon">
+            <button class="card__like-btn">
+              <img class="card__like-icon" src="images/like-icon.svg" alt="Like Icon">
+            </button>
+            <button class="card__liked-btn">
+              <img class="card__liked-icon" src="images/liked-icon.svg" alt="Like Icon">
+            </button>
           </div>
         </div>
       </section>
@@ -106,11 +154,11 @@
         </button>
         </div>
         <form class="modal__form">
-          <label for="name" class="modal__label">Name
-            <input type="text" id="name" class="modal__input" placeholder="Type your name" required>
+          <label for="profile-name-input" class="modal__label">Name
+            <input type="text" id="profile-name-input" class="modal__input" placeholder="Type your name" required>
           </label>
-          <label for="description" class="modal__label"> Description
-            <input type="text" id="description" class="modal__input" placeholder="Describe yourself" required>
+          <label for="profile-description-input" class="modal__label"> Description
+            <input type="text" id="profile-description-input" class="modal__input" placeholder="Describe yourself" required>
           </label>
           <button type="submit" class="modal__submit-btn">Save</button>
         </form>
@@ -127,11 +175,11 @@
         </button>
         </div>
         <form class="modal__form">
-          <label for="image-link" class="modal__label">Image Link
-            <input type="url" id="image-link" class="modal__input" placeholder="Paste a link to the picture" required>
+          <label for="profile-image-link" class="modal__label">Image Link
+            <input type="url" id="profile-image-link" class="modal__input" placeholder="Paste a link to the picture" required>
           </label>
-          <label for="image-caption" class="modal__label"> Caption
-            <input type="text" id="image-caption" class="modal__input" placeholder="Type your caption" required>
+          <label for="profile-image-caption" class="modal__label"> Caption
+            <input type="text" id="profile-image-caption" class="modal__input" placeholder="Type your caption" required>
           </label>
           <button type="submit" class="modal__submit-btn">Save</button>
         </form>

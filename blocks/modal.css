@@ -10,10 +10,13 @@
   justify-content: center;
   align-items: center;
   padding: 15px;
+  transition: visibility 0.5s ease;
+  z-index: 3;
 }
 
 .modal_is-opened {
   visibility: visible;
+  z-index: 3;
 }
 
 .modal__container {
@@ -73,8 +76,13 @@
   padding: 16px 12px;
   border-radius: 8px;
   border: 1px solid #21212166;
-  color: #21212166;
+  color: #212121;
 }
+
+.modal__input:hover {
+  border-color: #212121;
+}
+
 
 .modal__submit-btn {
   max-width: 156px;
