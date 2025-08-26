@@ -1,4 +1,4 @@
-.cards__container {
+.cards {
   width: 87%;
   max-width: 100%;
   display: grid;
@@ -9,7 +9,7 @@
   border-bottom: 1px solid #212121B2;
 }
 
-.card {
+.cards-container {
   display: flex;
   flex-direction: column;
   margin: auto;
@@ -17,7 +17,7 @@
   position: relative;
 }
 
-.card__image {
+.cards__image {
   display: block;
   width: 413px;
   max-width: 100%;
@@ -27,19 +27,19 @@
   margin: 0;
 }
 
-.card__content {
+.cards__content {
   display: flex;
   justify-content: space-between;
   max-width: 413px;
 }
 
-.card__description {
+.cards__description {
   font-size: 1.2rem;
   line-height: 1.2;
   margin: 15px 0 0 0;
 }
 
-.card__like-btn {
+.cards__like-btn {
   background: transparent url('../images/like-icon.svg') center no-repeat;
   border: none;
   cursor: pointer;
@@ -51,39 +51,38 @@
   opacity: 0.6;
 }
 
-.card__like-btn:hover {
+.cards__like-btn:hover {
   opacity: 1;
   cursor: pointer;
 }
 
 
-.card__like-btn_active {
+.cards__like-btn_active {
   background: url('../images/liked-icon.svg') center no-repeat;
   opacity: 1;
 }
 
-.card__like-btn_active:hover {
+.cards__like-btn_active:hover {
   opacity: 0.6;
   cursor: pointer;
 }
 
-.card__delete-btn {
+.cards__delete-btn {
   background-color: #0000004D;
   border: none;
   border-radius: 50%;
   display: flex;
-  align-items: center;
   justify-content: center;
   width: 32px;
   padding: 8px;
   cursor: pointer;
   position: absolute;
-  right: 10px;
   top: 10px;
+  right: 10px;
   z-index: 2;
 }
 
-.card__delete-btn:hover {
+.cards__delete-btn:hover {
   background-color: #FF6565;
 }
 
@@ -92,44 +91,44 @@
 
 @media (min-width: 630px) and (max-width: 1320px) {
 
-  .cards__container {
+  .cards {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
     width: 90vw;
   }
 
-  .card,
-  .card__image {
+  .cards-container,
+  .cards__image {
     max-width: 42vw;
     margin: auto;
   }
 }
 
 @media (min-width: 320px) and (max-width: 630px) {
-  .cards__container {
+  .cards {
     display: flex;
     flex-wrap: wrap;
   }
 
-  .card,
-  .card__image {
+  .cards-container,
+  .cards__image {
     margin: auto;
     max-width: 90vw;
   }
 
-  .card__delete-btn {
+  .cards__delete-btn {
     position: relative;
     top: 40px;
     left: 250px;
   }
 
-  .card__image {
+  .cards__image {
     width: 288px;
     height: 318px;
   }
 
-  .card__description {
+  .cards__description {
     font-size: 1rem;
   }
 
