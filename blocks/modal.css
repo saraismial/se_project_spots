@@ -97,6 +97,43 @@
   cursor: pointer;
 }
 
+.modal__image-container {
+  position: relative;
+}
+
+.modal__preview-close-btn {
+  background: transparent url('../images/popup-close.svg') center no-repeat;
+  border: none;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  opacity: 1;
+  position: absolute;
+  right: -45px;
+}
+
+.modal__preview-close-btn:hover {
+  opacity: 0.6;
+}
+
+.modal__image {
+  max-height: 80vh;
+  max-width: 80vw;
+  border-radius: 8px;
+  object-fit: fill;
+}
+
+.modal__caption {
+  background-color: #212121;
+  color: #fff;
+  padding: 4px 8px;
+  border-radius: 8px;
+  margin: 0;
+  font-weight: 500;
+  font-size: 1.25rem;
+  width: fit-content;
+}
+
 @media (min-width: 320px) and (max-width: 630px) {
   .modal__container {
     padding: 12px;
@@ -109,4 +146,19 @@
     max-width: 100%;
     width: 100%;
   }
+
+  .modal__image {
+    max-height: 90vh;
+    max-width: 90vw;
+  }
+
+  .modal__preview-close-btn {
+    right: 0;
+    top: -50px;
+  }
+
+  .modal__caption {
+    font-size: 1rem;
+  }
+
 }

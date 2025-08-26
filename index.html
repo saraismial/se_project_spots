@@ -1,191 +1,162 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Spits, a dynamic social media web app where users can upload, delete, and like photos, explore content from others, and personalize their profiles with simple edits.">
-  <meta name="author" content="Sara Ismial">
-  <link rel="stylesheet" href="pages/index.css">
-  <link rel="icon" type="image/x-icon" href="favicon.ico" />
-  <title>Spots</title>
-</head>
-<body>
-  <div class="page">
-    <header class="header">
-      <div class="header__logo">
-        <img class="header__icon" src="images/logo-icon.svg" alt="Spots Logo">
-        <h1 class="header__title">Spots</h1>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Spits, a dynamic social media web app where users can upload, delete, and like photos, explore content from others, and personalize their profiles with simple edits."
+    />
+    <meta name="author" content="Sara Ismial" />
+    <link rel="stylesheet" href="pages/index.css" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <title>Spots</title>
+  </head>
+  <body>
+    <div class="page">
+      <header class="header">
+        <div class="header__logo">
+          <img
+            class="header__icon"
+            src="images/logo-icon.svg"
+            alt="Spots Logo"
+          />
+          <h1 class="header__title">Spots</h1>
+        </div>
+      </header>
+      <main class="content">
+        <section class="profile">
+          <img
+            class="profile__image"
+            src="images/avatar.jpg"
+            alt="Profile Photo"
+          />
+          <div class="profile__column">
+            <h2 class="profile__name">Bessie Coleman</h2>
+            <p class="profile__description">Civil Aviator</p>
+            <button class="profile__edit-btn">
+              <img
+                class="profile__btn-pencil-icon"
+                src="images/pencil-icon-default.svg"
+                alt="Pencil icon"
+              />
+              Edit Profile
+            </button>
+          </div>
+          <button class="profile__post-btn">
+            <img
+              class="profile__btn-plus-icon"
+              src="images/plus-icon.svg"
+              alt="Plus icon"
+            />
+            New Post
+          </button>
+        </section>
+        <section class="cards__container">
+          <template id="card-template">
+            <div class="card">
+              <button class="card__delete-btn">
+                <img
+                  class="card__delete-icon"
+                  src="images/delete-icon.svg"
+                  alt="Delete Icon"
+                />
+              </button>
+              <img class="card__image" src="" alt="" />
+              <div class="card__content">
+                <p class="card__description"></p>
+                <button class="card__like-btn"></button>
+              </div>
+            </div>
+          </template>
+        </section>
+      </main>
+      <footer class="footer">
+        <p class="footer__text">2025 &copy; Sara Ismial</p>
+      </footer>
+      <div class="modal modal_edit-profile">
+        <div class="modal__container">
+          <div class="modal__header">
+            <h2 class="modal__title">Edit Profile</h2>
+            <button type="button" class="modal__close-btn">
+              <img
+                src="images/close-icon.svg"
+                alt="Close icon"
+                class="modal__close-btn-icon"
+              />
+            </button>
+          </div>
+          <form class="modal__form">
+            <label for="profile-name-input" class="modal__label"
+              >Name
+              <input
+                type="text"
+                id="profile-name-input"
+                class="modal__input"
+                placeholder="Type your name"
+                required
+              />
+            </label>
+            <label for="profile-description-input" class="modal__label">
+              Description
+              <input
+                type="text"
+                id="profile-description-input"
+                class="modal__input"
+                placeholder="Describe yourself"
+                required
+              />
+            </label>
+            <button type="submit" class="modal__submit-btn">Save</button>
+          </form>
+        </div>
       </div>
-    </header>
-    <main class="content">
-      <section class="profile">
-        <img class="profile__image" src="images/avatar.jpg" alt="Profile Photo">
-        <div class="profile__column">
-          <h2 class="profile__name">Bessie Coleman</h2>
-          <p class="profile__description">Civil Aviator</p>
-          <button class="profile__edit-btn">
-            <img class="profile__btn-pencil-icon" src="images/pencil-icon-default.svg" alt="Pencil icon">
-            Edit Profile
-          </button>
-        </div>
-        <button class="profile__post-btn">
-          <img class="profile__btn-plus-icon" src="images/plus-icon.svg" alt="Plus icon">
-          New Post
-        </button>
-      </section>
-      <section class="cards">
-        <div class="card">
-          <button class="card__delete-btn">
-            <img class="card__delete-icon" src="images/delete-icon.svg" alt="Delete Icon">
-          </button>
-          <img class="card__image" src="images/1-photo-by-moritz-feldmann-from-pexels.jpg" alt="Val Thorens">
-          <div class="card__content">
-            <p class="card__description">
-              Val Thorens
-            </p>
-            <button class="card__like-btn">
-              <img class="card__like-icon" src="images/like-icon.svg" alt="Like Icon">
-            </button>
-            <button class="card__liked-btn">
-              <img class="card__liked-icon" src="images/liked-icon.svg" alt="Like Icon">
+      <div class="modal modal_post-profile">
+        <div class="modal__container">
+          <div class="modal__header">
+            <h2 class="modal__title">New Post</h2>
+            <button type="button" class="modal__close-btn">
+              <img
+                src="images/close-icon.svg"
+                alt="Close icon"
+                class="modal__close-btn-icon"
+              />
             </button>
           </div>
+          <form class="modal__form">
+            <label for="profile-image-link" class="modal__label"
+              >Image Link
+              <input
+                type="url"
+                id="profile-image-link"
+                class="modal__input"
+                placeholder="Paste a link to the picture"
+                required
+              />
+            </label>
+            <label for="profile-image-caption" class="modal__label">
+              Caption
+              <input
+                type="text"
+                id="profile-image-caption"
+                class="modal__input"
+                placeholder="Type your caption"
+                required
+              />
+            </label>
+            <button type="submit" class="modal__submit-btn">Save</button>
+          </form>
         </div>
-        <div class="card">
-          <button class="card__delete-btn">
-            <img class="card__delete-icon" src="images/delete-icon.svg" alt="Delete Icon">
-          </button>
-          <img class="card__image" src="images/2-photo-by-ceiline-from-pexels.jpg" alt="Restaurant Terrace">
-          <div class="card__content">
-            <p class="card__description">
-              Restaurant Terrace
-            </p>
-            <button class="card__like-btn">
-              <img class="card__like-icon" src="images/like-icon.svg" alt="Like Icon">
-            </button>
-            <button class="card__liked-btn">
-              <img class="card__liked-icon" src="images/liked-icon.svg" alt="Like Icon">
-            </button>
-          </div>
+      </div>
+
+      <div class="modal" id="preview-modal">
+        <div class="modal__image-container">
+          <button type="button" class="modal__preview-close-btn"></button>
+          <img class="modal__image" src="#" alt="" />
+          <p class="modal__caption"></p>
         </div>
-        <div class="card">
-          <button class="card__delete-btn">
-            <img class="card__delete-icon" src="images/delete-icon.svg" alt="Delete Icon">
-          </button>
-          <img class="card__image" src="images/3-photo-by-tubanur-dogan-from-pexels.jpg" alt="An outdoor cafe">
-          <div class="card__content">
-            <p class="card__description">
-              An outdoor cafe
-            </p>
-            <button class="card__like-btn">
-              <img class="card__like-icon" src="images/like-icon.svg" alt="Like Icon">
-            </button>
-            <button class="card__liked-btn">
-              <img class="card__liked-icon" src="images/liked-icon.svg" alt="Like Icon">
-            </button>
-          </div>
-        </div>
-        <div class="card">
-          <button class="card__delete-btn">
-            <img class="card__delete-icon" src="images/delete-icon.svg" alt="Delete Icon">
-          </button>
-          <img class="card__image" src="images/4-photo-by-maurice-laschet-from-pexels.jpg" alt="A very long bridge, over the forest...">
-          <div class="card__content">
-            <p class="card__description">
-              A very long bridge, over the forest...
-            </p>
-            <button class="card__like-btn">
-              <img class="card__like-icon" src="images/like-icon.svg" alt="Like Icon">
-            </button>
-            <button class="card__liked-btn">
-              <img class="card__liked-icon" src="images/liked-icon.svg" alt="Like Icon">
-            </button>
-          </div>
-        </div>
-        <div class="card">
-          <button class="card__delete-btn">
-            <img class="card__delete-icon" src="images/delete-icon.svg" alt="Delete Icon">
-          </button>
-          <img class="card__image" src="images/5-photo-by-van-anh-nguyen-from-pexels.jpg" alt="Tunnel with morning light">
-          <div class="card__content">
-            <p class="card__description">
-              Tunnel with morning light
-            </p>
-            <button class="card__like-btn">
-              <img class="card__like-icon" src="images/like-icon.svg" alt="Like Icon">
-            </button>
-            <button class="card__liked-btn">
-              <img class="card__liked-icon" src="images/liked-icon.svg" alt="Like Icon">
-            </button>
-          </div>
-        </div>
-        <div class="card">
-          <button class="card__delete-btn">
-            <img class="card__delete-icon" src="images/delete-icon.svg" alt="Delete Icon">
-          </button>
-          <img class="card__image" src="images/6-photo-by-moritz-feldmann-from-pexels.jpg" alt="Mountain house">
-          <div class="card__content">
-            <p class="card__description">
-              Mountain house
-            </p>
-            <button class="card__like-btn">
-              <img class="card__like-icon" src="images/like-icon.svg" alt="Like Icon">
-            </button>
-            <button class="card__liked-btn">
-              <img class="card__liked-icon" src="images/liked-icon.svg" alt="Like Icon">
-            </button>
-          </div>
-        </div>
-      </section>
-    </main>
-    <footer class="footer">
-      <p class="footer__text">
-        2025 &copy; Sara Ismial
-      </p>
-    </footer>
-    <div class="modal modal_edit-profile">
-      <div class="modal__container">
-        <div class="modal__header">
-          <h2 class="modal__title">
-          Edit Profile
-        </h2>
-        <button type="button" class="modal__close-btn">
-          <img src="images/close-icon.svg" alt="Close icon" class="modal__close-btn-icon">
-        </button>
-        </div>
-        <form class="modal__form">
-          <label for="profile-name-input" class="modal__label">Name
-            <input type="text" id="profile-name-input" class="modal__input" placeholder="Type your name" required>
-          </label>
-          <label for="profile-description-input" class="modal__label"> Description
-            <input type="text" id="profile-description-input" class="modal__input" placeholder="Describe yourself" required>
-          </label>
-          <button type="submit" class="modal__submit-btn">Save</button>
-        </form>
       </div>
     </div>
-    <div class="modal modal_post-profile">
-      <div class="modal__container">
-        <div class="modal__header">
-          <h2 class="modal__title">
-          New Post
-        </h2>
-        <button type="button" class="modal__close-btn">
-          <img src="images/close-icon.svg" alt="Close icon" class="modal__close-btn-icon">
-        </button>
-        </div>
-        <form class="modal__form">
-          <label for="profile-image-link" class="modal__label">Image Link
-            <input type="url" id="profile-image-link" class="modal__input" placeholder="Paste a link to the picture" required>
-          </label>
-          <label for="profile-image-caption" class="modal__label"> Caption
-            <input type="text" id="profile-image-caption" class="modal__input" placeholder="Type your caption" required>
-          </label>
-          <button type="submit" class="modal__submit-btn">Save</button>
-        </form>
-      </div>
-    </div>
-  </div>
-  <script src="scripts/index.js"></script>
-</body>
+    <script src="scripts/index.js"></script>
+  </body>
 </html>

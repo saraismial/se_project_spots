@@ -12,7 +12,7 @@ const initialCards = [
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/3-photo-by-tubanur-dogan-from-pexels.jpg"
   },
   {
-    name: "A very long bridge, over the forest and through the trees",
+    name: "A very long bridge, over the forest...",
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/4-photo-by-maurice-laschet-from-pexels.jpg"
   },
   {
@@ -41,8 +41,18 @@ const postProfileFormElement = modalPostProfile.querySelector(".modal__form");
 const modalPostProfileLinkInput = modalPostProfile.querySelector("#profile-image-link");
 const modalPostProfileCaptionInput = modalPostProfile.querySelector("#profile-image-caption");
 
-const cardLikeButtons = document.querySelectorAll(".card__like-btn");
-const cardLikedButtons = document.querySelectorAll(".card__liked-btn");
+const cardsTemplate = document
+  .querySelector("#card-template")
+  .content
+  .querySelector(".card");
+const cardsContainer = document.querySelector(".cards__container");
+
+const modalPreviewImage = document.querySelector("#preview-modal");
+const modalImageContainer = modalPreviewImage.querySelector(".modal__image-container");
+const modalImageElement = modalPreviewImage.querySelector(".modal__image");
+const modalImageCaption = modalPreviewImage.querySelector(".modal__caption");
+const modalPreviewCloseButton = modalPreviewImage.querySelector(".modal__preview-close-btn");
+
 
 function openModal(modal) {
   modal.classList.add("modal_is-opened");
@@ -53,22 +63,26 @@ function closeModal(modal) {
 }
 
 
-editProfileButton.addEventListener("click", function() {
+editProfileButton.addEventListener("click", () => {
   openModal(modalEditProfile);
   modalEditProfileNameInput.value = profileNameElement.textContent;
   modalEditProfileDescriptionInput.value = profileDescriptionElement.textContent;
 });
 
-modalEditCloseButton.addEventListener("click", function() {
+modalEditCloseButton.addEventListener("click", () => {
   closeModal(modalEditProfile);
 });
 
-newPostButton.addEventListener("click", function() {
+newPostButton.addEventListener("click", () => {
   openModal(modalPostProfile);
 });
 
-modalPostCloseButton.addEventListener("click", function() {
+modalPostCloseButton.addEventListener("click", () => {
   closeModal(modalPostProfile);
+});
+
+modalPreviewCloseButton.addEventListener("click", () => {
+  closeModal(modalPreviewImage);
 });
 
 function handleProfileFormSubmit(evt) {
@@ -85,27 +99,61 @@ function handleProfileFormSubmit(evt) {
 
 editProfileFormElement.addEventListener('submit', handleProfileFormSubmit);
 
+function getCardElement(data) {
+  const cardElement = cardsTemplate.cloneNode(true);
+
+  const cardDescriptionEL = cardElement.querySelector(".card__description");
+  cardDescriptionEL.textContent = data.name;
+
+  const cardImageEL = cardElement.querySelector(".card__image");
+  cardImageEL.src = data.link;
+  cardImageEL.alt = data.name;
+
+  cardImageEL.addEventListener("click", () => {
+    modalImageCaption.textContent = data.name;
+    modalImageElement.src = data.link;
+    modalImageElement.alt = data.name;
+    openModal(modalPreviewImage);
+  });
+
+  const cardDeleteButton = cardElement.querySelector(".card__delete-btn");
+  cardDeleteButton.addEventListener("click", function() {
+    cardElement.remove();
+  });
+
+  const cardLikeButton = cardElement.querySelector(".card__like-btn");
+  cardLikeButton.addEventListener("click", () => {
+    cardLikeButton.classList.toggle("card__like-btn_active");
+  });
+
+  return cardElement;
+}
+
+
+initialCards.forEach(function(item) {
+  const cardElement = getCardElement(item);
+  cardsContainer.append(cardElement);
+});
+
+function renderCard(data) {
+  const cardElement = getCardElement(data);
+  cardsContainer.prepend(cardElement);
+}
+
 function handleAddCardSubmit(evt) {
   evt.preventDefault();
 
   const modalPostProfileLinkInputValue = modalPostProfileLinkInput.value;
   const modalPostProfileCaptionInputValue = modalPostProfileCaptionInput.value;
 
-  console.log(`Image Link: ${modalPostProfileLinkInputValue}, Caption: ${modalPostProfileCaptionInputValue}`);
+  renderCard({
+    name: modalPostProfileCaptionInputValue,
+    link: modalPostProfileLinkInputValue
+  });
 
   closeModal(modalPostProfile);
 }
 
 postProfileFormElement.addEventListener('submit', handleAddCardSubmit);
 
-initialCards.forEach(function(item) {
-  console.log(`Name: ${item.name}, Link: ${item.link}`);
-});
-
-cardLikeButtons.forEach(function(likeButton, index) {
-  likeButton.addEventListener("click", function() {
-    cardLikedButtons[index].classList.add("card__liked-btn_visible");
-    likeButton.classList.add("card__like-btn_visible");
-  });
-});
 
