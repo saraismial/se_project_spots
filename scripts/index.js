@@ -42,10 +42,10 @@ const modalPostProfileLinkInput = modalPostProfile.querySelector("#profile-image
 const modalPostProfileCaptionInput = modalPostProfile.querySelector("#profile-image-caption");
 
 const cardsTemplate = document
-  .querySelector("#card-template")
+  .querySelector("#cards-template")
   .content
-  .querySelector(".card");
-const cardsContainer = document.querySelector(".cards__container");
+  .querySelector(".cards-container");
+const cardsSection = document.querySelector(".cards");
 
 const modalPreviewImage = document.querySelector("#preview-modal");
 const modalImageContainer = modalPreviewImage.querySelector(".modal__image-container");
@@ -102,10 +102,10 @@ editProfileFormElement.addEventListener('submit', handleProfileFormSubmit);
 function getCardElement(data) {
   const cardElement = cardsTemplate.cloneNode(true);
 
-  const cardDescriptionEL = cardElement.querySelector(".card__description");
+  const cardDescriptionEL = cardElement.querySelector(".cards__description");
   cardDescriptionEL.textContent = data.name;
 
-  const cardImageEL = cardElement.querySelector(".card__image");
+  const cardImageEL = cardElement.querySelector(".cards__image");
   cardImageEL.src = data.link;
   cardImageEL.alt = data.name;
 
@@ -116,14 +116,14 @@ function getCardElement(data) {
     openModal(modalPreviewImage);
   });
 
-  const cardDeleteButton = cardElement.querySelector(".card__delete-btn");
+  const cardDeleteButton = cardElement.querySelector(".cards__delete-btn");
   cardDeleteButton.addEventListener("click", function() {
     cardElement.remove();
   });
 
-  const cardLikeButton = cardElement.querySelector(".card__like-btn");
+  const cardLikeButton = cardElement.querySelector(".cards__like-btn");
   cardLikeButton.addEventListener("click", () => {
-    cardLikeButton.classList.toggle("card__like-btn_active");
+    cardLikeButton.classList.toggle("cards__like-btn_active");
   });
 
   return cardElement;
@@ -132,12 +132,12 @@ function getCardElement(data) {
 
 initialCards.forEach(function(item) {
   const cardElement = getCardElement(item);
-  cardsContainer.append(cardElement);
+  cardsSection.append(cardElement);
 });
 
 function renderCard(data) {
   const cardElement = getCardElement(data);
-  cardsContainer.prepend(cardElement);
+  cardsSection.prepend(cardElement);
 }
 
 function handleAddCardSubmit(evt) {
