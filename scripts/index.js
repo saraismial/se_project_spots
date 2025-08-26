@@ -152,6 +152,8 @@ function handleAddCardSubmit(evt) {
   });
 
   closeModal(modalPostProfile);
+
+  postProfileFormElement.reset();
 }
 
 postProfileFormElement.addEventListener('submit', handleAddCardSubmit);
