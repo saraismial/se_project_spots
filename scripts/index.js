@@ -38,8 +38,8 @@ const modalPostProfile = document.querySelector(".modal_post-profile");
 const newPostButton = document.querySelector(".profile__post-btn");
 const modalPostCloseButton = modalPostProfile.querySelector(".modal__close-btn");
 const postProfileFormElement = modalPostProfile.querySelector(".modal__form");
-const modalPostProfileLinkInput = modalPostProfile.querySelector("#profile-image-link");
-const modalPostProfileCaptionInput = modalPostProfile.querySelector("#profile-image-caption");
+const modalPostProfileLinkInput = modalPostProfile.querySelector("#image-link");
+const modalPostProfileCaptionInput = modalPostProfile.querySelector("#image-caption");
 
 const cardsTemplate = document
   .querySelector("#cards-template")
@@ -53,13 +53,26 @@ const modalImageElement = modalPreviewImage.querySelector(".modal__image");
 const modalImageCaption = modalPreviewImage.querySelector(".modal__caption");
 const modalPreviewCloseButton = modalPreviewImage.querySelector(".modal__preview-close-btn");
 
+const allModals = document.querySelectorAll(".modal");
+let escapeHandler;
+
 
 function openModal(modal) {
   modal.classList.add("modal_is-opened");
+
+  escapeHandler = (evt) => {
+    if (evt.key === 'Escape' || evt.keyCode === 27) {
+      closeModal(modal);
+    }
+  };
+
+  document.addEventListener('keydown', escapeHandler);
 }
 
 function closeModal(modal) {
   modal.classList.remove("modal_is-opened");
+
+  document.removeEventListener('keydown', escapeHandler);
 }
 
 
@@ -68,6 +81,7 @@ editProfileButton.addEventListener("click", () => {
   modalEditProfileNameInput.value = profileNameElement.textContent;
   modalEditProfileDescriptionInput.value = profileDescriptionElement.textContent;
 });
+
 
 modalEditCloseButton.addEventListener("click", () => {
   closeModal(modalEditProfile);
@@ -83,6 +97,14 @@ modalPostCloseButton.addEventListener("click", () => {
 
 modalPreviewCloseButton.addEventListener("click", () => {
   closeModal(modalPreviewImage);
+});
+
+allModals.forEach((modal) => {
+  modal.addEventListener('click', (evt) => {
+    if (evt.target.classList.contains('modal')) {
+      closeModal(modal);
+    }
+  });
 });
 
 function handleProfileFormSubmit(evt) {
