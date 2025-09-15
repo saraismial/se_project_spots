@@ -1,34 +1,31 @@
-// Declaring a configuration object that contains the
-// necessary classes and selectors.
-const settings = {
+export const settings = {
   formSelector: ".modal__form",
   inputSelector: ".modal__input",
   submitButtonSelector: ".modal__submit-btn",
-  inactiveButtonClass: ".modal__submit-btn-disabled",
-  inputErrorClass: ".modal__input_type_error",
-  errorClass: ".modal-error"
+  inactiveButtonClass: "modal__submit-btn-disabled",
+  inputErrorClass: "modal__input_type_error",
+  errorClass: "modal-error"
 }
-
-// Passing the configuration object to enableValidation when we call it.
-
 
 const showInputError = (formElement, inputElement, errorMessage, config) => {
   const errorMessageElemenet = formElement.querySelector(`#${inputElement.id}-error`);
   errorMessageElemenet.textContent = errorMessage;
-  inputElement.classList.add(config.errorClass, config.nputErrorClass);
+  errorMessageElemenet.classList.add(config.errorClass);
+  inputElement.classList.add(config.inputErrorClass);
 };
 
 const hideInputError = (formElement, inputElement, config) => {
   const errorMessageElemenet = formElement.querySelector(`#${inputElement.id}-error`);
-  inputElement.classList.remove(config.errorClass, config.nputErrorClass);
+  errorMessageElemenet.classList.remove(config.errorClass);
+  inputElement.classList.remove(config.inputErrorClass);
   errorMessageElemenet.textContent = "";
 };
 
-const checkInputValidity = (formElement, inputElement) => {
+const checkInputValidity = (formElement, inputElement, config) => {
   if (!inputElement.validity.valid) {
-    showInputError(formElement, inputElement, inputElement.validationMessage);
+    showInputError(formElement, inputElement, inputElement.validationMessage, config);
   } else {
-    hideInputError(formElement, inputElement);
+    hideInputError(formElement, inputElement, config);
   }
 };
 
@@ -52,22 +49,22 @@ const setEventListeners = (formElement, config) => {
   const inputList = formElement.querySelectorAll(config.inputSelector);
   const buttonElement = formElement.querySelector(config.submitButtonSelector);
 
-  toggleButton(inputList, buttonElement);
+  toggleButton(inputList, buttonElement, config);
 
   inputList.forEach((inputElement) => {
     inputElement.addEventListener("input", function() {
-      checkInputValidity(formElement, inputElement);
-      toggleButton(inputList, buttonElement);
+      checkInputValidity(formElement, inputElement, config);
+      toggleButton(inputList, buttonElement, config);
     });
   });
 };
 
-const enableValidation = (config) => {
+export const enableValidation = (config) => {
   const formList = document.querySelectorAll(config.formSelector);
   formList.forEach((formElement) => {
     setEventListeners(formElement, config);
   });
 };
 
-enableValidation(settings);
+
 

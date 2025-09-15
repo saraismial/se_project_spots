@@ -1,29 +1,39 @@
+import "./index.css";
+import { settings, enableValidation } from "../scripts/validation.js";
+import valThorensImage from "../images/val-thorens.jpg";
+import restaurantTerraceImage from "../images/restaurant-terrace.jpg";
+import outdoorCafeImage from "../images/outdoor-cafe.jpg";
+import longBridgeImage from "../images/long-bridge.jpg";
+import tunnelImage from "../images/tunnel.jpg";
+import mountainHouseImage from "../images/mountain-house.jpg";
+
 const initialCards = [
   {
     name: "Val Thorens",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/1-photo-by-moritz-feldmann-from-pexels.jpg"
+    link: valThorensImage
   },
   {
     name: "Restaurant terrace",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/2-photo-by-ceiline-from-pexels.jpg"
+    link: restaurantTerraceImage
   },
   {
     name: "An outdoor cafe",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/3-photo-by-tubanur-dogan-from-pexels.jpg"
+    link: outdoorCafeImage
   },
   {
     name: "A very long bridge, over the forest...",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/4-photo-by-maurice-laschet-from-pexels.jpg"
+    link: longBridgeImage
   },
   {
     name: "Tunnel with morning light",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/5-photo-by-van-anh-nguyen-from-pexels.jpg"
+    link: tunnelImage
   },
   {
     name: "Mountain house",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/6-photo-by-moritz-feldmann-from-pexels.jpg"
+    link: mountainHouseImage
   }
 ];
+
 const modalEditProfile = document.querySelector(".modal_edit-profile");
 const editProfileButton = document.querySelector(".profile__edit-btn");
 const modalEditCloseButton = modalEditProfile.querySelector(".modal__close-btn");
@@ -99,8 +109,8 @@ modalPreviewCloseButton.addEventListener("click", () => {
   closeModal(modalPreviewImage);
 });
 
-allModals.forEach((modal) => {
-  modal.addEventListener('click', (evt) => {
+ allModals.forEach((modal) => {
+  modal.addEventListener('mousedown', (evt) => {
     if (evt.target.classList.contains('modal')) {
       closeModal(modal);
     }
@@ -180,4 +190,4 @@ function handleAddCardSubmit(evt) {
 
 postProfileFormElement.addEventListener('submit', handleAddCardSubmit);
 
-
+enableValidation(settings);
