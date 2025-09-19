@@ -24,14 +24,20 @@
       </header>
       <main class="content">
         <section class="profile">
-          <img
-            class="profile__image"
-            src="<%=require('./images/avatar.jpg')%>"
-            alt="Profile Photo"
-          />
+          <div class="profile__avatar">
+            <button class="profile__avatar-btn">
+              <img
+                class="profile__avatar-btn-pencil-icon"
+                src="<%=require('./images/pencil-icon-avatar.svg')%>"
+                alt="Pencil icon"
+              />
+              Edit Avatar
+            </button>
+            <img class="profile__image" src="" alt="Profile Photo" />
+          </div>
           <div class="profile__column">
-            <h2 class="profile__name">Bessie Coleman</h2>
-            <p class="profile__description">Civil Aviator</p>
+            <h2 class="profile__name"></h2>
+            <p class="profile__description"></p>
             <button class="profile__edit-btn">
               <img
                 class="profile__btn-pencil-icon"
@@ -50,6 +56,7 @@
             New Post
           </button>
         </section>
+
         <section class="cards">
           <template id="cards-template">
             <div class="cards-container">
@@ -72,6 +79,9 @@
       <footer class="footer">
         <p class="footer__text">2025 &copy; Sara Ismial</p>
       </footer>
+
+      <!-- this is the edit profile modal -->
+
       <div class="modal modal_edit-profile">
         <div class="modal__container">
           <div class="modal__header">
@@ -118,6 +128,9 @@
           </form>
         </div>
       </div>
+
+      <!-- this is the new post profile modal -->
+
       <div class="modal modal_post-profile">
         <div class="modal__container">
           <div class="modal__header">
@@ -159,6 +172,40 @@
           </form>
         </div>
       </div>
+
+      <!-- this is the edit avatar modal -->
+
+      <div class="modal modal_profile-avatar">
+        <!--need to add the .modal class after creating-->
+        <div class="modal__container">
+          <div class="modal__header">
+            <h2 class="modal__title">Edit profile avatar</h2>
+            <button type="button" class="modal__close-btn">
+              <img
+                src="<%=require('./images/close-icon.svg')%>"
+                alt="Close icon"
+                class="modal__close-btn-icon"
+              />
+            </button>
+          </div>
+          <form class="modal__form" novalidate>
+            <label for="profile__image-link" class="modal__label"
+              >Profile Picture
+              <input
+                type="url"
+                id="profile__image-link"
+                class="modal__input"
+                placeholder="Paste the link to an image"
+                required
+              />
+              <span id="profile__image-link-error" class="modal-error"></span>
+            </label>
+            <button type="submit" class="modal__submit-btn">Save</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- this is the image preview modal -->
 
       <div class="modal" id="preview-modal">
         <div class="modal__image-container">
