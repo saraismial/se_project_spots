@@ -75,4 +75,25 @@ export class Api {
     return await Promise.reject(`Error: ${res.status}`);
   }
 
+  async deleteCard(cardID) {
+    const res = await fetch(`${this._baseUrl}/cards/${cardID}`, {
+      method: "DELETE",
+      headers: this._headers
+    });
+    if (res.ok) {
+      return res.json();
+    }
+    return await Promise.reject(`Error: ${res.status}`);
+  }
+
+  async changeLikeCardStatus(cardId, isLiked) {
+    const res = await fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
+      method: isLiked ? "DELETE" : "PUT",
+      headers: this._headers,
+    });
+    if (res.ok) {
+      return res.json();
+    }
+    return await Promise.reject(`Error: ${res.status}`);
+  }
 }
