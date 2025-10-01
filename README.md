@@ -78,5 +78,5 @@ The **Spots App** is an interactive web application built as part of the **Tripl
 - **Webpack** – Module bundling, asset management  
 - **File Processing** – Image imports, CSS bundling  
 
----
+
 
