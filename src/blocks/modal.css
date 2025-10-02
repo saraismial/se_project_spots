@@ -241,4 +241,17 @@
     font-size: 1rem;
   }
 
+  .modal__confirmation-text {
+    font-size: 1.25rem;
+  }
+
+  .modal__confirm-btns {
+    width: 60%;
+  }
+
+  .modal__confirmation-buttons {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
 }

@@ -17,6 +17,7 @@ const modalEditCloseButton = modalEditProfile.querySelector(".modal__close-btn")
 const editProfileFormElement = modalEditProfile.querySelector(".modal__form");
 const modalEditProfileNameInput = modalEditProfile.querySelector("#profile-name-input");
 const modalEditProfileDescriptionInput = modalEditProfile.querySelector("#profile-description-input");
+const modalEditProfileSubmitButton = editProfileFormElement.querySelector(".modal__submit-btn");
 
 const profileNameElement = document.querySelector(".profile__name");
 const profileDescriptionElement = document.querySelector(".profile__description");
@@ -27,6 +28,7 @@ const editAvatarButton = document.querySelector(".profile__avatar-btn");
 const modalAvatarCloseButton = modalProfileAvatar.querySelector(".modal__close-btn");
 const avatarFormElement = modalProfileAvatar.querySelector(".modal__form");
 const modalAvatarLinkInput = modalProfileAvatar.querySelector("#profile__image-link");
+const modalAvatarSubmitButton = avatarFormElement.querySelector(".modal__submit-btn");
 
 
 const modalPostProfile = document.querySelector(".modal_post-profile");
@@ -35,6 +37,7 @@ const modalPostCloseButton = modalPostProfile.querySelector(".modal__close-btn")
 const postProfileFormElement = modalPostProfile.querySelector(".modal__form");
 const modalPostProfileLinkInput = modalPostProfile.querySelector("#image-link");
 const modalPostProfileCaptionInput = modalPostProfile.querySelector("#image-caption");
+const modalPostProfileSubmitButton = postProfileFormElement.querySelector(".modal__submit-btn");
 
 const cardsTemplate = document
   .querySelector("#cards-template")
@@ -54,8 +57,6 @@ const modalCancelDeleteButton = modalConfirmationModal.querySelector(".modal__ca
 
 const allModals = document.querySelectorAll(".modal");
 let escapeHandler;
-
-let currentUserId;
 
 
 function openModal(modal) {
@@ -127,7 +128,6 @@ api.getAppInfo()
     profileNameElement.textContent = user.name;
     profileDescriptionElement.textContent = user.about;
     profileAvatarElement.src = user.avatar;
-    currentUserId = user._id;
     //for cards
     cards.forEach((item => {
     const cardElement = getCardElement(item);
@@ -139,6 +139,7 @@ api.getAppInfo()
 
 function handleProfileFormSubmit(evt) {
   evt.preventDefault();
+  modalEditProfileSubmitButton.textContent = "Saving...";
 
   api
     .editUserInfo({
@@ -152,11 +153,15 @@ function handleProfileFormSubmit(evt) {
 
       closeModal(modalEditProfile);
     })
-    .catch(console.error);
+    .catch(console.error)
+    .finally(() => {
+      modalEditProfileSubmitButton.textContent = "Save";
+    });
 }
 
 function handleAvatarFormSubmit(evt) {
   evt.preventDefault();
+  modalAvatarSubmitButton.textContent = "Saving...";
 
   api
     .editUserAvatar({
@@ -168,7 +173,10 @@ function handleAvatarFormSubmit(evt) {
 
       closeModal(modalProfileAvatar);
     })
-    .catch(console.error);
+    .catch(console.error)
+    .finally(() => {
+      modalAvatarSubmitButton.textContent = "Save";
+    });
 }
 
 
@@ -211,8 +219,10 @@ cardLikeButton.addEventListener("click", () => {
   cardDeleteButton.addEventListener("click", () => {
   openModal(modalConfirmationModal);
 
-  modalConfirmDeleteButton.onclick = () => {
+  modalConfirmDeleteButton.onclick = (evt) => {
+    evt.preventDefault();
     api.deleteCard(data._id)
+
       .then(() => {
         cardElement.remove();
         closeModal(modalConfirmationModal);
@@ -233,6 +243,7 @@ function renderCard(data) {
 
 function handleAddCardSubmit(evt) {
   evt.preventDefault();
+  modalPostProfileSubmitButton.textContent = "Saving...";
 
   api
     .postCardInfo({
@@ -250,6 +261,9 @@ function handleAddCardSubmit(evt) {
       postProfileFormElement.reset();
     })
     .catch(console.error)
+    .finally(() => {
+      modalPostProfileSubmitButton.textContent = "Save";
+    });
 }
 
 postProfileFormElement.addEventListener('submit', handleAddCardSubmit);
