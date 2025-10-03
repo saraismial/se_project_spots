@@ -76,7 +76,12 @@ The **Spots App** is an interactive web application built as part of the **Tripl
 
 ### Build Tools
 - **Webpack** – Module bundling, asset management  
-- **File Processing** – Image imports, CSS bundling  
+- **File Processing** – Image imports, CSS bundling
+
+### Deployment
+- https://saraismial.github.io/se_project_spots/
+- sarasspotsapp.netlify.app
+
 
 
 
