@@ -251,10 +251,11 @@ function handleAddCardSubmit(evt) {
       name: modalPostProfileCaptionInput.value,
     })
     .then((data) => {
-      renderCard({
-        link: data.link,
-        name: data.name
-      });
+      renderCard(data);
+
+      const placeholders = [...document.querySelectorAll('.cards__description')]
+      .filter(el => el.textContent.trim() === 'Greetings from the server!');
+      placeholders.forEach(el => el.closest('.cards-container')?.remove());
 
       closeModal(modalPostProfile);
 
